@@ -1,0 +1,15 @@
+services:
+    nil_portugues.api.mapping.mapper:
+          class: NilPortugues\Api\Mapping\Mapper
+          arguments: []
+
+    nil_portugues.api.hal_json.hal_json_transformer:
+         class: NilPortugues\Api\HalJson\HalJsonTransformer
+         arguments:
+            - @nil_portugues.api.mapping.mapper
+
+    nil_portugues.serializer.hal_json_serializer:
+         class: NilPortugues\Symfony2\HalJsonBundle\Serializer\HalJsonSerializer
+         arguments:
+            - @nil_portugues.api.hal_json.hal_json_transformer
+            - @router
