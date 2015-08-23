@@ -2,7 +2,7 @@ Symfony2 HAL+JSON Transformer Bundle
 =========================================
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nilportugues/haljson-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/nilportugues/haljson-bundle/?branch=master)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/3269f12e-a707-462a-bef5-22e5ed522e8e/mini.png)](https://insight.sensiolabs.com/projects/3269f12e-a707-462a-bef5-22e5ed522e8e) 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/3db88526-561a-4969-a734-cff5cedb5afb/mini.png)](https://insight.sensiolabs.com/projects/3db88526-561a-4969-a734-cff5cedb5afb) 
 [![Latest Stable Version](https://poser.pugx.org/nilportugues/haljson-bundle/v/stable)](https://packagist.org/packages/nilportugues/haljson-bundle)
 [![Total Downloads](https://poser.pugx.org/nilportugues/haljson-bundle/downloads)](https://packagist.org/packages/nilportugues/haljson-bundle)
 [![License](https://poser.pugx.org/nilportugues/haljson-bundle/license)](https://packagist.org/packages/nilportugues/haljson-bundle)
