@@ -124,10 +124,9 @@ mapping:
   urls:
     self: get_post ## @Route name
     comments: get_post_comments ## @Route name
-  relationships:
-    author:
-      related: get_post_author ## @Route name
-      self: get_post_author_relationship  ## @Route name
+  curies:
+    name: example
+    href: http://example.com/docs/rels/{rel}
 ```
 
 ```yml
@@ -141,9 +140,9 @@ mapping:
   - postId
   urls:
     self: get_post  ## @Route name
-  relationships:
-    comment:
-      self: get_post_comments_relationship  ## @Route name
+  curies:
+    name: example
+    href: http://example.com/docs/rels/{rel}
 ```
 
 
@@ -158,9 +157,9 @@ mapping:
     - commentId
   urls:
     self: get_comment ## @Route name
-  relationships:
-    post:
-      self: get_post_comments_relationship ## @Route name
+  curies:
+    name: example
+    href: http://example.com/docs/rels/{rel}
 ```
 
 ```yml
@@ -174,9 +173,9 @@ mapping:
     - commentId
   urls:
     self: get_comment ## @Route name
-  relationships:
-    post:
-      self: get_post_comments_relationship ## @Route name
+  curies:
+    name: example
+    href: http://example.com/docs/rels/{rel}
 ```
 
 
@@ -193,6 +192,9 @@ mapping:
     self: get_user
     friends: get_user_friends  ## @Route name
     comments: get_user_comments  ## @Route name
+  curies:
+    name: example
+    href: http://example.com/docs/rels/{rel}    
 ```
 
 
@@ -209,6 +211,9 @@ mapping:
     self: get_user  ## @Route name
     friends: get_user_friends  ## @Route name
     comments: get_user_comments  ## @Route name
+  curies:
+    name: example
+    href: http://example.com/docs/rels/{rel}    
 ```
 
 
