@@ -420,6 +420,34 @@ class PostController extends Controller
 } 
 ```
 
+
+And the recommended configuration to be added in `app/config/config.yml`
+
+```yml
+#app/config/config.yml
+
+nelmio_api_doc:
+  sandbox:
+        authentication:
+          name: access_token
+          delivery: http
+          type:     basic
+          custom_endpoint: false
+        enabled:  true
+        endpoint: ~
+        accept_type: ~
+        body_format:
+            formats: []
+            default_format: form
+        request_format:
+            formats:
+                json: application/hal+json
+            method: accept_header
+            default_format: json
+        entity_to_choice: false
+```        
+
+
 ## Quality
 
 To run the PHPUnit tests at the command line, go to the tests directory and issue phpunit.
