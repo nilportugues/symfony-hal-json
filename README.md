@@ -22,158 +22,95 @@ $ composer require nilportugues/haljson-bundle
 ```
 HTTP/1.1 200 OK
 Cache-Control: private, max-age=0, must-revalidate
-Content-type: application/vnd.api+json
+Content-type: application/hal+json
 ```
 
 ```json
 {
-    "data": {
-        "type": "message",
-        "id": "9",
-        "attributes": {
-            "headline": "Hello World",
-            "body": "Your first post"
-        },
-        "links": {
-            "self": {
-                "href": "http://example.com/posts/9"
-            },
-            "comments": {
-                "href": "http://example.com/posts/9/comments"
-            }
-        },
-        "relationships": {
-            "author": {
-                "links": {
-                    "self": {
-                        "href": "http://example.com/posts/9/relationships/author"
-                    },
-                    "related": {
-                        "href": "http://example.com/posts/9/author"
-                    }
-                },
-                "data": {
-                    "type": "user",
-                    "id": "1"
-                }
-            }
-        }
-    },
-    "included": [
-        {
-            "type": "user",
-            "id": "1",
-            "attributes": {
-                "name": "Post Author"
-            },
-            "links": {
+    "post_id": 9,
+    "headline": "Hello World",
+    "body": "Your first post",
+    "_embedded": {
+        "author": {
+            "user_id": 1,
+            "name": "Post Author",
+            "_links": {
                 "self": {
                     "href": "http://example.com/users/1"
                 },
-                "friends": {
+                "example:friends": {
                     "href": "http://example.com/users/1/friends"
                 },
-                "comments": {
+                "example:comments": {
                     "href": "http://example.com/users/1/comments"
                 }
             }
         },
-        {
-            "type": "user",
-            "id": "2",
-            "attributes": {
-                "name": "Barristan Selmy"
-            },
-            "links": {
-                "self": {
-                    "href": "http://example.com/users/2"
-                },
-                "friends": {
-                    "href": "http://example.com/users/2/friends"
-                },
-                "comments": {
-                    "href": "http://example.com/users/2/comments"
-                }
-            }
-        },
-        {
-            "type": "comment",
-            "id": "1000",
-            "attributes": {
+        "comments": [
+            {
+                "comment_id": 1000,
                 "dates": {
-                    "created_at": "2015-08-13T21:11:07+02:00",
-                    "accepted_at": "2015-08-13T21:46:07+02:00"
+                    "created_at": "2015-08-13T22:47:45+02:00",
+                    "accepted_at": "2015-08-13T23:22:45+02:00"
                 },
-                "comment": "Have no fear, sers, your king is safe."
-            },
-            "links": {
-                "self": {
-                    "href": "http://example.com/comments/1000"
+                "comment": "Have no fear, sers, your king is safe.",
+                "_embedded": {
+                    "user": {
+                        "user_id": 2,
+                        "name": "Barristan Selmy",
+                        "_links": {
+                            "self": {
+                                "href": "http://example.com/users/2"
+                            },
+                            "example:friends": {
+                                "href": "http://example.com/users/2/friends"
+                            },
+                            "example:comments": {
+                                "href": "http://example.com/users/2/comments"
+                            }
+                        }
+                    }
+                },
+                "_links": {
+                    "example:user": {
+                        "href": "http://example.com/users/2"
+                    },
+                    "self": {
+                        "href": "http://example.com/comments/1000"
+                    }
                 }
             }
-        }
-    ],
-    "links": {
+        ]
+    },
+    "_links": {
+        "curies": [
+            {
+                "name": "example",
+                "href": "http://example.com/docs/rels/{rel}",
+                "templated": true
+            }
+        ],
         "self": {
             "href": "http://example.com/posts/9"
         },
         "next": {
             "href": "http://example.com/posts/10"
+        },
+        "example:author": {
+            "href": "http://example.com/users/1"
+        },
+        "example:comments": {
+            "href": "http://example.com/posts/9/comments"
         }
     },
-    "meta": {
+    "_meta": {
         "author": [
             {
                 "name": "Nil Portugués Calderó",
                 "email": "contact@nilportugues.com"
             }
         ]
-    },
-    "haljson": {
-        "version": "1.0"
     }
-}
-```
-
-#### Request objects
-
-JSON API comes with a helper Request class, `NilPortugues\Api\HalJson\Http\Message\Request(ServerRequestInterface $request)`, implementing the PSR-7 Request Interface. Using this request object will provide you access to all the interactions expected in a JSON API:
-
-##### JSON API Query Parameters:
-
-- &filter[resource]=field1,field2
-- &include[resource]
-- &include[resource.field1]
-- &sort=field1,-field2
-- &sort=-field1,field2
-- &page[number]
-- &page[limit]
-- &page[cursor]
-- &page[offset]
-- &page[size]
-
-
-##### NilPortugues\Api\HalJson\Http\Message\Request
-
-Given the query parameters listed above, Request implements helper methods that parse and return data already prepared.
-
-```php
-namespace NilPortugues\Api\HalJson\Http\Message;
-
-final class Request
-{
-    public function __construct(ServerRequestInterface $request) { ... }
-    public function getQueryParam($name, $default = null) { ... }
-    public function getIncludedRelationships($baseRelationshipPath) { ... }
-    public function getSortFields() { ... }
-    public function getAttribute($name, $default = null) { ... }
-    public function getSortDirection() { ... }
-    public function getPageNumber() { ... }
-    public function getPageLimit() { ... }
-    public function getPageOffset() { ... }
-    public function getPageSize() { ... }
-    public function getPageCursor() { ... }
-    public function getFilters() { ... }
 }
 ```
 
