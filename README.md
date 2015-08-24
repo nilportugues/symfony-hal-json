@@ -471,7 +471,7 @@ Get in touch with me using one of the following means:
 
  - Emailing me at <contact@nilportugues.com>
  - Opening an [Issue](https://github.com/nilportugues/symfony2-hal-json-transformer/issues/new)
- - Using Gitter: [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nilportugues/symfony2-haljson-transformer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+ - Using Gitter: [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nilportugues/symfony2-hal-json-transformer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 
 ## Authors
