@@ -12,7 +12,7 @@ namespace NilPortugues\Symfony2\HalJsonBundle\Serializer;
 
 use NilPortugues\Api\HalJson\HalJsonTransformer;
 use NilPortugues\Api\Mapping\Mapping;
-use NilPortugues\Serializer\Serializer;
+use NilPortugues\Serializer\DeepCopySerializer;
 use ReflectionClass;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Security\Acl\Exception\Exception;
@@ -20,7 +20,7 @@ use Symfony\Component\Security\Acl\Exception\Exception;
 /**
  * Class HalJsonSerializer.
  */
-class HalJsonSerializer extends Serializer
+class HalJsonSerializer extends DeepCopySerializer
 {
     /**
      * @param HalJsonTransformer $transformer
