@@ -23,7 +23,9 @@
         "symfony/psr-http-message-bridge": "~0.2"
     },
     "require-dev": {
-        "fabpot/php-cs-fixer": "^1.9",
+        "symfony/symfony": "2.*",
+        "fabpot/php-cs-fixer": "~1.9",
+        "nilportugues/php_backslasher": "~0.2",
         "mmoreram/php-formatter": "dev-master"
     },
     "config": {

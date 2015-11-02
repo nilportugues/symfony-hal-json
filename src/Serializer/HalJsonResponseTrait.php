@@ -8,13 +8,14 @@ trait HalJsonResponseTrait
 {
     /**
      * @param \Psr\Http\Message\ResponseInterface $response
+     *
      * @return \Psr\Http\Message\ResponseInterface
      */
     protected function addHeaders(\Psr\Http\Message\ResponseInterface $response)
     {
         return $response;
     }
-    
+
     /**
      * @param string $json
      *
