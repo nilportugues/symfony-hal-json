@@ -1,5 +1,6 @@
-Symfony2 HAL+JSON Transformer Bundle
+Symfony HAL+JSON Transformer Bundle
 =========================================
+For Symfony 2 and Symfony 3
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nilportugues/symfony2-hal-json-transformer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/nilportugues/symfony2-hal-json-transformer/?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3db88526-561a-4969-a734-cff5cedb5afb/mini.png)](https://insight.sensiolabs.com/projects/3db88526-561a-4969-a734-cff5cedb5afb) 
