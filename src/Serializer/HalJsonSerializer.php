@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Symfony2\HalJsonBundle\Serializer;
+namespace NilPortugues\Symfony\HalJsonBundle\Serializer;
 
+use Exception;
 use NilPortugues\Api\HalJson\HalJsonTransformer;
 use NilPortugues\Api\Mapping\Mapping;
 use NilPortugues\Serializer\DeepCopySerializer;
 use ReflectionClass;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
-use Symfony\Component\Security\Acl\Exception\Exception;
 
 /**
  * Class HalJsonSerializer.

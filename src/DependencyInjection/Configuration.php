@@ -1,6 +1,6 @@
 <?php
 
-namespace NilPortugues\Symfony2\HalJsonBundle\DependencyInjection;
+namespace NilPortugues\Symfony\HalJsonBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

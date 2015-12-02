@@ -1,17 +1,28 @@
 <?php
 
-namespace NilPortugues\Symfony2\HalJsonBundle\Serializer;
+namespace NilPortugues\Symfony\HalJsonBundle\Serializer;
 
+use NilPortugues\Api\HalJson\Http\Message\ErrorResponse;
+use NilPortugues\Api\HalJson\Http\Message\ResourceCreatedResponse;
+use NilPortugues\Api\HalJson\Http\Message\ResourceDeletedResponse;
+use NilPortugues\Api\HalJson\Http\Message\ResourceNotFoundResponse;
+use NilPortugues\Api\HalJson\Http\Message\ResourcePatchErrorResponse;
+use NilPortugues\Api\HalJson\Http\Message\ResourcePostErrorResponse;
+use NilPortugues\Api\HalJson\Http\Message\ResourceProcessingResponse;
+use NilPortugues\Api\HalJson\Http\Message\ResourceUpdatedResponse;
+use NilPortugues\Api\HalJson\Http\Message\Response;
+use NilPortugues\Api\HalJson\Http\Message\UnsupportedActionResponse;
+use Psr\Http\Message\ResponseInterface;
 use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
 
 trait HalJsonResponseTrait
 {
     /**
-     * @param \Psr\Http\Message\ResponseInterface $response
+     * @param ResponseInterface $response
      *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return ResponseInterface
      */
-    protected function addHeaders(\Psr\Http\Message\ResponseInterface $response)
+    protected function addHeaders(ResponseInterface $response)
     {
         return $response;
     }
@@ -21,10 +32,10 @@ trait HalJsonResponseTrait
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function errorResponse($json)
+    protected function errorResponse($json)
     {
         return (new HttpFoundationFactory())
-            ->createResponse($this->addHeaders(new \NilPortugues\Api\HalJson\Http\Message\ErrorResponse($json)));
+            ->createResponse($this->addHeaders(new ErrorResponse($json)));
     }
 
     /**
@@ -32,10 +43,10 @@ trait HalJsonResponseTrait
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function resourceCreatedResponse($json)
+    protected function resourceCreatedResponse($json)
     {
         return (new HttpFoundationFactory())
-            ->createResponse($this->addHeaders(new \NilPortugues\Api\HalJson\Http\Message\ResourceCreatedResponse($json)));
+            ->createResponse($this->addHeaders(new ResourceCreatedResponse($json)));
     }
 
     /**
@@ -43,10 +54,10 @@ trait HalJsonResponseTrait
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function resourceDeletedResponse($json)
+    protected function resourceDeletedResponse($json)
     {
         return (new HttpFoundationFactory())
-            ->createResponse($this->addHeaders(new \NilPortugues\Api\HalJson\Http\Message\ResourceDeletedResponse($json)));
+            ->createResponse($this->addHeaders(new ResourceDeletedResponse($json)));
     }
 
     /**
@@ -54,10 +65,10 @@ trait HalJsonResponseTrait
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function resourceNotFoundResponse($json)
+    protected function resourceNotFoundResponse($json)
     {
         return (new HttpFoundationFactory())
-            ->createResponse($this->addHeaders(new \NilPortugues\Api\HalJson\Http\Message\ResourceNotFoundResponse($json)));
+            ->createResponse($this->addHeaders(new ResourceNotFoundResponse($json)));
     }
 
     /**
@@ -65,10 +76,10 @@ trait HalJsonResponseTrait
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function resourcePatchErrorResponse($json)
+    protected function resourcePatchErrorResponse($json)
     {
         return (new HttpFoundationFactory())
-            ->createResponse($this->addHeaders(new \NilPortugues\Api\HalJson\Http\Message\ResourcePatchErrorResponse($json)));
+            ->createResponse($this->addHeaders(new ResourcePatchErrorResponse($json)));
     }
 
     /**
@@ -76,10 +87,10 @@ trait HalJsonResponseTrait
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function resourcePostErrorResponse($json)
+    protected function resourcePostErrorResponse($json)
     {
         return (new HttpFoundationFactory())
-            ->createResponse($this->addHeaders(new \NilPortugues\Api\HalJson\Http\Message\ResourcePostErrorResponse($json)));
+            ->createResponse($this->addHeaders(new ResourcePostErrorResponse($json)));
     }
 
     /**
@@ -87,10 +98,10 @@ trait HalJsonResponseTrait
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function resourceProcessingResponse($json)
+    protected function resourceProcessingResponse($json)
     {
         return (new HttpFoundationFactory())
-            ->createResponse($this->addHeaders(new \NilPortugues\Api\HalJson\Http\Message\ResourceProcessingResponse($json)));
+            ->createResponse($this->addHeaders(new ResourceProcessingResponse($json)));
     }
 
     /**
@@ -98,10 +109,10 @@ trait HalJsonResponseTrait
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function resourceUpdatedResponse($json)
+    protected function resourceUpdatedResponse($json)
     {
         return (new HttpFoundationFactory())
-            ->createResponse($this->addHeaders(new \NilPortugues\Api\HalJson\Http\Message\ResourceUpdatedResponse($json)));
+            ->createResponse($this->addHeaders(new ResourceUpdatedResponse($json)));
     }
 
     /**
@@ -109,10 +120,10 @@ trait HalJsonResponseTrait
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function response($json)
+    protected function response($json)
     {
         return (new HttpFoundationFactory())
-            ->createResponse($this->addHeaders(new \NilPortugues\Api\HalJson\Http\Message\Response($json)));
+            ->createResponse($this->addHeaders(new Response($json)));
     }
 
     /**
@@ -120,9 +131,9 @@ trait HalJsonResponseTrait
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function unsupportedActionResponse($json)
+    protected function unsupportedActionResponse($json)
     {
         return (new HttpFoundationFactory())
-            ->createResponse($this->addHeaders(new \NilPortugues\Api\HalJson\Http\Message\UnsupportedActionResponse($json)));
+            ->createResponse($this->addHeaders(new UnsupportedActionResponse($json)));
     }
 }
