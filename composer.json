@@ -2,8 +2,8 @@
     "name": "nilportugues/haljson-bundle",
     "homepage": "http://nilportugues.com",
     "type": "library",
-    "description": "Symfony 2 HAL+JSON Transformer Package",
-    "keywords": ["sf2", "symfony", "halson", "hal", "json", "api", "haljson", "serializer", "transformer", "psr7", "response"],
+    "description": "HAL+JSON API Transformer Bundle for Symfony 2 and Symfony 3",
+    "keywords": ["sf2", "sf3","symfony", "symfony2", "symfony3", "halson", "hal", "json", "api", "haljson", "serializer", "transformer", "psr7", "response"],
     "license": "MIT",
     "authors": [
         {
@@ -14,7 +14,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "NilPortugues\\Symfony2\\HalJsonBundle\\": "src/"
+            "NilPortugues\\Symfony\\HalJsonBundle\\": "src/"
         }
     },
     "require": {
