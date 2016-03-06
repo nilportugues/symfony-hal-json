@@ -7,7 +7,7 @@ For Symfony 2 and Symfony 3
 [![Latest Stable Version](https://poser.pugx.org/nilportugues/haljson-bundle/v/stable)](https://packagist.org/packages/nilportugues/haljson-bundle)
 [![Total Downloads](https://poser.pugx.org/nilportugues/haljson-bundle/downloads)](https://packagist.org/packages/nilportugues/haljson-bundle)
 [![License](https://poser.pugx.org/nilportugues/haljson-bundle/license)](https://packagist.org/packages/nilportugues/haljson-bundle)
-
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://paypal.me/nilportugues)
 
 - [Installation](#installation)
 - [Usage](#usage)
