@@ -4,7 +4,7 @@ services:
           arguments: []
 
     nil_portugues.api.hal_json.hal_json_transformer:
-         class: NilPortugues\Api\HalJson\HalJsonTransformer
+         class: NilPortugues\Api\Hal\JsonTransformer
          arguments:
             - "@nil_portugues.api.mapping.mapper"
 
