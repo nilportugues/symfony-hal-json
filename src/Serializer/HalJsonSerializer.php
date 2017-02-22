@@ -12,7 +12,7 @@
 namespace NilPortugues\Symfony\HalJsonBundle\Serializer;
 
 use Exception;
-use NilPortugues\Api\HalJson\HalJsonTransformer;
+use NilPortugues\Api\Hal\JsonTransformer;
 use NilPortugues\Api\Mapping\Mapping;
 use NilPortugues\Serializer\DeepCopySerializer;
 use ReflectionClass;
@@ -24,20 +24,20 @@ use Symfony\Bundle\FrameworkBundle\Routing\Router;
 class HalJsonSerializer extends DeepCopySerializer
 {
     /**
-     * @param HalJsonTransformer $transformer
+     * @param JsonTransformer $transformer
      * @param Router             $router
      */
-    public function __construct(HalJsonTransformer $transformer, Router $router)
+    public function __construct(JsonTransformer $transformer, Router $router)
     {
         $this->mapUrls($transformer, $router);
         parent::__construct($transformer);
     }
 
     /**
-     * @param HalJsonTransformer $transformer
+     * @param JsonTransformer $transformer
      * @param Router             $router
      */
-    private function mapUrls(HalJsonTransformer $transformer, Router $router)
+    private function mapUrls(JsonTransformer $transformer, Router $router)
     {
         $reflectionClass = new ReflectionClass($transformer);
         $reflectionProperty = $reflectionClass->getProperty('mappings');

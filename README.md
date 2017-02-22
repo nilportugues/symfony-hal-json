@@ -50,7 +50,7 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             // ...
-            new NilPortugues\Symfony\HalJsonBundle\NilPortuguesSymfony2HalJsonBundle(),
+            new NilPortugues\Symfony\HalJsonBundle\NilPortuguesSymfonyHalJsonBundle(),
         );
         // ...
     }
@@ -249,7 +249,7 @@ class PostController extends Controller
         
         $serializer = $this->get('nil_portugues.serializer.hal_json_serializer');
 
-        /** @var \NilPortugues\Api\HalJson\HalJsonTransformer $transformer */
+        /** @var \NilPortugues\Api\Hal\HalTransformer $transformer */
         $transformer = $serializer->getTransformer();
         $transformer->setSelfUrl($this->generateUrl('get_post', ['postId' => $postId], true));
         $transformer->setNextUrl($this->generateUrl('get_post', ['postId' => $postId+1], true));
@@ -411,7 +411,7 @@ class PostController extends Controller
         
         $serializer = $this->get('nil_portugues.serializer.hal_json_serializer');
 
-        /** @var \NilPortugues\Api\HalJson\HalJsonTransformer $transformer */
+        /** @var \NilPortugues\Api\Hal\JsonTransformer $transformer */
         $transformer = $serializer->getTransformer();
         $transformer->setSelfUrl($this->generateUrl('get_post', ['postId' => $postId], true));
         $transformer->setNextUrl($this->generateUrl('get_post', ['postId' => $postId+1], true));
@@ -472,7 +472,6 @@ Get in touch with me using one of the following means:
 
  - Emailing me at <contact@nilportugues.com>
  - Opening an [Issue](https://github.com/nilportugues/symfony-hal-json-transformer/issues/new)
- - Using Gitter: [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nilportugues/symfony-hal-json-transformer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 
 ## Authors
