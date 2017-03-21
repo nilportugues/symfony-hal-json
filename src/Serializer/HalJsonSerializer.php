@@ -12,6 +12,7 @@
 namespace NilPortugues\Symfony\HalJsonBundle\Serializer;
 
 use Exception;
+use NilPortugues\Api\Hal\HalPagination;
 use NilPortugues\Api\Hal\JsonTransformer;
 use NilPortugues\Api\Mapping\Mapping;
 use NilPortugues\Serializer\DeepCopySerializer;
@@ -44,7 +45,12 @@ class HalJsonSerializer extends DeepCopySerializer
         $reflectionProperty->setAccessible(true);
         $mappings = $reflectionProperty->getValue($transformer);
 
-        foreach ($mappings as &$mapping) {
+        foreach ($mappings as $key => &$mapping) {
+
+            if ($key === HalPagination::class) {
+                continue;
+            }
+
             $mappingClass = new ReflectionClass($mapping);
 
             $this->setUrlWithReflection($router, $mapping, $mappingClass, 'resourceUrlPattern');
