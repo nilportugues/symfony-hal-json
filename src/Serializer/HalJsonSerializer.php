@@ -26,7 +26,7 @@ class HalJsonSerializer extends DeepCopySerializer
 {
     /**
      * @param JsonTransformer $transformer
-     * @param Router             $router
+     * @param Router          $router
      */
     public function __construct(JsonTransformer $transformer, Router $router)
     {
@@ -36,7 +36,7 @@ class HalJsonSerializer extends DeepCopySerializer
 
     /**
      * @param JsonTransformer $transformer
-     * @param Router             $router
+     * @param Router          $router
      */
     private function mapUrls(JsonTransformer $transformer, Router $router)
     {
@@ -46,7 +46,6 @@ class HalJsonSerializer extends DeepCopySerializer
         $mappings = $reflectionProperty->getValue($transformer);
 
         foreach ($mappings as $key => &$mapping) {
-
             if ($key === HalPagination::class) {
                 continue;
             }
