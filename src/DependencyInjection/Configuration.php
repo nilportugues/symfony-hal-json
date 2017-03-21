@@ -25,7 +25,6 @@ class Configuration implements ConfigurationInterface
             ->children()
             ->arrayNode('mappings')->prototype('scalar')
             ->isRequired()
-            ->cannotBeEmpty()
             ->end();
 
         return $treeBuilder;
